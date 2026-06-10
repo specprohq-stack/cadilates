@@ -481,6 +481,17 @@
       background: var(--walnut);
       overflow: hidden;
       z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-image-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+      background: var(--walnut);
     }
     .hero-img-placeholder {
       position: absolute;
@@ -618,7 +629,7 @@
     .apparatus-body + .apparatus-body { margin-top: 1rem; }
     .apparatus-image-box {
       position: relative;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 9 / 16;
       background: var(--pale);
       overflow: hidden;
       /* Replace this entire element with an <img> tag when photo is ready */
@@ -626,8 +637,10 @@
     .apparatus-image-box img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center center;
       display: block;
+      background: var(--pale);
     }
     .apparatus-img-placeholder {
       position: absolute;
@@ -1543,9 +1556,9 @@
     @media (max-width: 900px) {
       #hero { grid-template-columns: 1fr; }
       .hero-content { padding: 140px 32px 60px; max-width: 100%; }
-      .hero-image-side { height: 50vw; min-height: 280px; }
+      .hero-image-side { height: min(150vw, 720px); min-height: 520px; }
       .apparatus-grid { grid-template-columns: 1fr; gap: 48px; }
-      .apparatus-image-box { aspect-ratio: 16 / 10; }
+      .apparatus-image-box { aspect-ratio: 9 / 16; max-height: 760px; }
       .apparatus-image-box::after { display: none; }
       .intro-grid { grid-template-columns: 1fr; gap: 44px; }
       .membership-cards { grid-template-columns: 1fr; }
@@ -1794,7 +1807,7 @@
       </p>
     </div>
     <div class="hero-image-side" role="img" aria-label="Celeste performing an inversion on the Cadillac Reformer">
-      <img src="images/IMG_3368.jpeg" alt="Celeste on the Cadillac Reformer at Cadilates Santa Monica — inversion movement" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center top;">
+      <img src="images/IMG_3368.jpeg" alt="Celeste on the Cadillac Reformer at Cadilates Santa Monica — inversion movement">
       <span class="hero-img-tag">Cadillac Reformer Pilates &nbsp;·&nbsp; Santa Monica</span>
     </div>
   </section>
@@ -1861,7 +1874,7 @@
       </div>
       <div class="apparatus-image-box" role="img" aria-label="Cadillac Reformer apparatus at Cadilates Santa Monica">
 
-        <img src="images/RenderedImage.jpeg" alt="Cadillac Reformer apparatus at Cadilates Santa Monica" style="width:100%;height:100%;object-fit:cover;display:block;object-position:center 20%;">
+        <img src="images/RenderedImage.jpeg" alt="Cadillac Reformer apparatus at Cadilates Santa Monica">
       </div>
     </div>
     <div class="apparatus-callout">
