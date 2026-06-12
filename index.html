@@ -2208,7 +2208,6 @@
       action="https://cadilates.us8.list-manage.com/subscribe/post?u=64b8054eef2cfe26d608e8238&id=c77c20fbda&f_id=0074d4e1f0"
       method="POST"
       name="mc-embedded-subscribe-form"
-      target="_blank"
       novalidate
       aria-label="Cadilates founding membership interest form"
     >
@@ -2276,8 +2275,8 @@
       <div class="form-success-icon">✦</div>
       <h3>You're on the list.</h3>
       <p>
-        Celeste will reach out personally within 48 hours.<br>
-        Check your inbox. A confirmation is on its way.
+        Your request went through. Celeste will reach out personally within 48 hours.<br>
+        You can close this page or keep exploring Cadilates.
       </p>
     </div>
 
@@ -2364,30 +2363,78 @@
       cta.style.display = 'none'; // hidden until scrolled
     })();
 
-    // ── MAILCHIMP FORM — success state + validation ──
+    // ── MAILCHIMP FORM — submit in-page, then show branded success state ──
     (function() {
       var form = document.getElementById('mc-embedded-subscribe-form');
       var successEl = document.getElementById('formSuccess');
       if (!form || !successEl) return;
 
       form.addEventListener('submit', function(e) {
-        // Basic validation
+        e.preventDefault();
+
         var email = document.getElementById('mce-EMAIL') || form.querySelector('input[name="EMAIL"]');
         if (!email || !email.value || !email.value.includes('@')) {
-          e.preventDefault();
           if (email) {
             email.style.borderColor = '#c0392b';
             email.focus();
           }
           return;
         }
-        // If Mailchimp URL is placeholder, show success UI for demo
-        if (form.action.indexOf('MAILCHIMP') !== -1) {
-          e.preventDefault();
-          form.style.display = 'none';
-          successEl.style.display = 'block';
+
+        var submit = form.querySelector('button[type="submit"]');
+        if (submit) {
+          submit.disabled = true;
+          submit.textContent = 'Reserving...';
         }
-        // Otherwise, normal POST to Mailchimp — they handle redirect
+
+        var callbackName = 'mcCallback_' + Date.now();
+        var script = document.createElement('script');
+        var data = new FormData(form);
+        var params = new URLSearchParams();
+        data.forEach(function(value, key) {
+          params.append(key, value);
+        });
+        params.append('c', callbackName);
+
+        window[callbackName] = function(response) {
+          if (script.parentNode) script.parentNode.removeChild(script);
+          delete window[callbackName];
+
+          if (submit) {
+            submit.disabled = false;
+            submit.textContent = 'Reserve My Founding Spot';
+          }
+
+          if (response && response.result === 'success') {
+            form.style.display = 'none';
+            successEl.style.display = 'block';
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+          }
+
+          var message = response && response.msg ? response.msg.replace(/<[^>]*>/g, '') : 'Something went wrong. Please try again.';
+          if (/already subscribed/i.test(message)) {
+            form.style.display = 'none';
+            successEl.style.display = 'block';
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+          }
+
+          alert(message);
+        };
+
+        script.onerror = function() {
+          if (script.parentNode) script.parentNode.removeChild(script);
+          delete window[callbackName];
+          if (submit) {
+            submit.disabled = false;
+            submit.textContent = 'Reserve My Founding Spot';
+          }
+          alert('We could not reach Mailchimp. Please try again in a moment.');
+        };
+
+        script.src = form.action.replace('/post?', '/post-json?') + '&' + params.toString();
+        document.body.appendChild(script);
       });
     })();
   </script>
