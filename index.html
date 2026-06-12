@@ -281,12 +281,16 @@
       padding: 13px 40px;
     }
     .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: 0.30em;
-      text-transform: uppercase;
-      color: var(--text-light);
+      display: inline-flex;
+      align-items: center;
+      width: clamp(138px, 13vw, 188px);
+      height: 44px;
+    }
+    .nav-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: invert(94%) sepia(11%) saturate(386%) hue-rotate(334deg) brightness(103%) contrast(93%);
     }
     .nav-actions {
       display: flex;
@@ -1515,12 +1519,15 @@
       align-items: center;
     }
     .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 500;
-      letter-spacing: 0.30em;
-      text-transform: uppercase;
-      color: var(--text-light);
+      display: inline-flex;
+      align-items: center;
+      width: clamp(150px, 16vw, 220px);
+    }
+    .footer-logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: invert(94%) sepia(11%) saturate(386%) hue-rotate(334deg) brightness(103%) contrast(93%);
     }
     .footer-instagram {
       font-family: 'Montserrat', sans-serif;
@@ -1573,7 +1580,10 @@
     @media (max-width: 600px) {
       .navbar { padding: 14px 20px; }
       .navbar.scrolled { padding: 12px 20px; }
+      .nav-logo { width: 126px; height: 34px; }
       .nav-actions .nav-link { display: none; }
+      .footer-top { align-items: flex-start; gap: 18px; }
+      .footer-logo { width: 142px; }
       #apparatus, #founding, #intro-offer, #pricing, #difference, #founder, #faq, #signup { padding: 72px 20px; }
       .founding-card { padding: 36px 24px; }
       .hero-content { padding: 120px 20px 60px; }
@@ -1777,7 +1787,9 @@
 
   <!-- ── NAV ── -->
   <nav class="navbar" id="navbar" role="navigation">
-    <span class="nav-logo">Cadilates</span>
+    <a class="nav-logo" href="#hero" aria-label="Cadilates home">
+      <img src="images/cadilates-logo.png" alt="Cadilates">
+    </a>
     <div class="nav-actions">
       <a href="#pricing" class="nav-link">Pricing</a>
       <a href="#faq" class="nav-link">FAQ</a>
@@ -2274,7 +2286,9 @@
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-top">
-      <span class="footer-logo">Cadilates</span>
+      <span class="footer-logo" aria-label="Cadilates">
+        <img src="images/cadilates-logo.png" alt="Cadilates">
+      </span>
       <a href="https://instagram.com/cadilates" class="footer-instagram" target="_blank" rel="noopener noreferrer">@cadilates</a>
     </div>
     <p class="footer-address">
