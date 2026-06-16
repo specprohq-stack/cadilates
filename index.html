@@ -2215,6 +2215,12 @@
     <div style="position:absolute;left:-5000px;" aria-hidden="true">
       <input type="text" name="b_64b8054eef2cfe26d608e8238_c77c20fbda" tabindex="-1" value="">
     </div>
+      <input type="hidden" id="mce-FBCLID" name="FBCLID" value="">
+      <input type="hidden" id="mce-UTM_SRC" name="UTM_SRC" value="">
+      <input type="hidden" id="mce-UTM_MED" name="UTM_MED" value="">
+      <input type="hidden" id="mce-UTM_CAMP" name="UTM_CAMP" value="">
+      <input type="hidden" id="mce-UTM_CONT" name="UTM_CONT" value="">
+      <input type="hidden" id="mce-UTM_TERM" name="UTM_TERM" value="">
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="mce-FNAME">First Name</label>
@@ -2369,8 +2375,44 @@
       var successEl = document.getElementById('formSuccess');
       if (!form || !successEl) return;
 
+      var attributionFields = {
+        fbclid: 'FBCLID',
+        utm_source: 'UTM_SRC',
+        utm_medium: 'UTM_MED',
+        utm_campaign: 'UTM_CAMP',
+        utm_content: 'UTM_CONT',
+        utm_term: 'UTM_TERM'
+      };
+
+      function setAttributionFields() {
+        var search = new URLSearchParams(window.location.search);
+        Object.keys(attributionFields).forEach(function(paramName) {
+          var fieldName = attributionFields[paramName];
+          var storageKey = 'cadilates_' + paramName;
+          var value = search.get(paramName);
+
+          if (value) {
+            try {
+              sessionStorage.setItem(storageKey, value);
+            } catch (err) {}
+          } else {
+            try {
+              value = sessionStorage.getItem(storageKey) || '';
+            } catch (err) {
+              value = '';
+            }
+          }
+
+          var input = form.querySelector('input[name="' + fieldName + '"]');
+          if (input) input.value = value || '';
+        });
+      }
+
+      setAttributionFields();
+
       form.addEventListener('submit', function(e) {
         e.preventDefault();
+        setAttributionFields();
 
         var email = document.getElementById('mce-EMAIL') || form.querySelector('input[name="EMAIL"]');
         if (!email || !email.value || !email.value.includes('@')) {
