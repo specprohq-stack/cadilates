@@ -86,38 +86,18 @@
         "sameAs": ["https://www.instagram.com/cadilates"],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Cadilates Memberships and Class Packs",
+          "name": "Cadilates Founding Membership",
           "itemListElement": [
             {
               "@type": "Offer",
               "name": "Founding Unlimited Membership",
               "description": "Unlimited Cadillac Reformer Pilates classes per month. Founding rate locked for life. Limited to first 50 members. 3 month minimum commitment.",
+              "url": "https://www.cadilates.com/buy",
               "price": "279",
               "priceCurrency": "USD",
               "priceSpecification": { "@type": "UnitPriceSpecification", "price": "279", "priceCurrency": "USD", "unitCode": "MON" },
               "availability": "https://schema.org/LimitedAvailability",
               "eligibleQuantity": { "@type": "QuantitativeValue", "value": 50 }
-            },
-            {
-              "@type": "Offer",
-              "name": "7 Day Unlimited Intro",
-              "description": "Seven consecutive days of unlimited Cadillac Reformer Pilates classes. New clients only. One time purchase.",
-              "price": "119",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock"
-            },
-            {
-              "@type": "Offer",
-              "name": "Unlimited Monthly Membership",
-              "price": "315",
-              "priceCurrency": "USD",
-              "priceSpecification": { "@type": "UnitPriceSpecification", "price": "315", "priceCurrency": "USD", "unitCode": "MON" }
-            },
-            {
-              "@type": "Offer",
-              "name": "Single Drop In Class",
-              "price": "42",
-              "priceCurrency": "USD"
             }
           ]
         }
@@ -139,7 +119,7 @@
             "name": "What does a Cadilates founding membership include?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Founding Unlimited membership is $279/month locked for life, including unlimited classes, priority booking 7 days ahead of general members, early class format access, founding member recognition, private member events, and a personal welcome call from founder Celeste Frias within 48 hours. Requires a 3 month minimum commitment."
+              "text": "Founding Unlimited membership is $279/month locked for life, including unlimited classes, priority booking 7 days ahead of general members, early class format access, founding member recognition, private member events, and a personal welcome from founder Celeste Frias within 48 hours after joining. Requires a 3 month minimum commitment."
             }
           },
           {
@@ -147,7 +127,7 @@
             "name": "Do I need prior Pilates experience to join Cadilates?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No prior experience is required. Classes at Cadilates are capped at 12 clients so programming can flex to meet every fitness level, from complete beginners to advanced practitioners. New clients are encouraged to start with the 7 Day Unlimited Intro at $119."
+              "text": "No prior experience is required. Classes at Cadilates are capped at 12 clients so programming can flex to meet every fitness level, from complete beginners to advanced practitioners. A 7 Day Intro and standard memberships will also be available through the Cadilates app."
             }
           },
           {
@@ -1788,6 +1768,23 @@
       color: var(--text-muted);
       line-height: 1.8;
     }
+    .form-success-cta {
+      display: inline-block;
+      background: var(--caramel);
+      color: var(--espresso);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 18px 26px;
+      margin-top: 24px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .form-success-cta:hover {
+      background: var(--nude);
+      transform: translateY(-2px);
+    }
     </style>
 </head>
 <body>
@@ -1809,7 +1806,7 @@
       <img src="images/cadilates-logo.png" alt="Cadilates">
     </a>
     <div class="nav-actions">
-      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#founding" class="nav-link">Founding 50</a>
       <a href="#faq" class="nav-link">FAQ</a>
       <a href="#signup" class="nav-cta">50 Founding Spots</a>
     </div>
@@ -1830,7 +1827,7 @@
       </p>
       <div class="hero-actions">
         <a href="#signup" class="btn-primary">Claim Founding Membership</a>
-        <a href="#intro-offer" class="btn-secondary">Try 7 Days for $119</a>
+        <a href="#founding" class="btn-secondary">View Founding Benefits</a>
       </div>
       <p class="hero-footnote">
         <strong>Founding rate: $279/mo &nbsp;·&nbsp; Locked for life &nbsp;·&nbsp; 50 spots only</strong>
@@ -1958,106 +1955,8 @@
     </div>
 
     <p class="founding-footnote">
-      <strong>50 founding memberships available.</strong> Once they are filled, this price is gone and will not return.<br>Not ready to commit? <a href="#intro-offer" style="color:var(--caramel);font-weight:500;text-decoration:underline;text-underline-offset:3px;">Try 7 days unlimited for $119 first →</a>
+      <strong>50 founding memberships available.</strong> Once they are filled, this price is gone and will not return.<br>Not ready for Founding Membership? A 7 Day Intro and standard memberships will also be available through the Cadilates app.
     </p>
-  </section>
-
-
-  <!-- ─────────────────────────────
-       SECTION 3b — 7-DAY INTRO
-  ───────────────────────────── -->
-  <section id="intro-offer" aria-label="New client intro offer">
-    <div class="intro-grid">
-      <div class="intro-text">
-        <span class="section-label">New to Cadilates</span>
-        <h2 class="intro-headline">
-          Not Sure Yet?<br>Start Here.
-        </h2>
-        <p class="intro-body">
-          The 7 Day Unlimited Intro is the right first step for anyone who wants to experience the Cadillac Reformer before making a longer commitment. Seven days. Unlimited access. One flat fee.
-        </p>
-        <p class="intro-body">
-          Most people know by their second class whether Cadilates is for them. This offer is designed to let you find out without any pressure. Many of our founding members started here.
-        </p>
-      </div>
-      <div class="intro-price-box" role="article" aria-label="7 day unlimited intro offer">
-        <span class="intro-price-label">New Client Intro Offer</span>
-        <div class="intro-price-amount"><sup>$</sup>119</div>
-        <div class="intro-price-desc">7 Day Unlimited Access · One time purchase · New clients only</div>
-        <ul class="intro-notes">
-          <li>Unlimited classes for 7 consecutive days</li>
-          <li>Access to all class formats and times</li>
-          <li>No credit card on file required after purchase</li>
-          <li>Founding pricing still available during your intro period</li>
-        </ul>
-        <a href="#signup" class="intro-price-cta">Book My Intro Week</a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ─────────────────────────────
-       SECTION 4 — FULL PRICING
-  ───────────────────────────── -->
-  <section id="pricing" aria-label="Full studio pricing">
-    <div class="pricing-header">
-      <div class="gold-line" style="margin:0 auto 1rem;"></div>
-      <span class="section-label">Studio Pricing</span>
-      <h2 class="pricing-headline">Every Way to Practice at Cadilates</h2>
-      <p class="pricing-subhead">All options below reflect standard pricing. Founding members lock in at $279/month permanently.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-section-title">Memberships</div>
-      <div class="membership-cards" role="list">
-        <article class="mem-card" role="listitem">
-          <div class="mem-card-name">4 Classes / Month</div>
-          <div class="mem-card-price"><sup>$</sup>150</div>
-          <div class="mem-card-period">per month</div>
-          <p class="mem-card-desc">Four sessions per month. Ideal for a consistent weekly practice without the commitment of unlimited access.</p>
-        </article>
-        <article class="mem-card" role="listitem">
-          <div class="mem-card-name">8 Classes / Month</div>
-          <div class="mem-card-price"><sup>$</sup>250</div>
-          <div class="mem-card-period">per month</div>
-          <p class="mem-card-desc">Two sessions per week. The most popular option for clients building a serious, structured practice.</p>
-        </article>
-        <article class="mem-card" role="listitem">
-          <div class="mem-card-name">Unlimited Monthly</div>
-          <div class="mem-card-price"><sup>$</sup>315</div>
-          <div class="mem-card-period">per month</div>
-          <p class="mem-card-desc">Attend as often as you like. For those who want Cadilates to be a daily foundation, not just an occasional class.</p>
-        </article>
-      </div>
-
-      <div class="pricing-section-title">Class Packs</div>
-      <div class="packs-grid" role="list">
-        <article class="pack-card" role="listitem">
-          <div>
-            <div class="pack-name">Single Drop In Class</div>
-            <div class="pack-desc">No commitment. Pay as you go.</div>
-          </div>
-          <div class="pack-price"><sup>$</sup>42</div>
-        </article>
-        <article class="pack-card" role="listitem">
-          <div>
-            <div class="pack-name">10 Class Pack</div>
-            <div class="pack-desc">$39 per class. Use within 6 months.</div>
-          </div>
-          <div class="pack-price"><sup>$</sup>390</div>
-        </article>
-        <article class="pack-card" role="listitem">
-          <div>
-            <div class="pack-name">20 Class Pack</div>
-            <div class="pack-desc">$37 per class. Best value single purchase.</div>
-          </div>
-          <div class="pack-price"><sup>$</sup>740</div>
-        </article>
-      </div>
-
-      <p class="pricing-note">
-        All memberships and packs book through Mariana Tek. Questions about pricing or what's right for you? &nbsp;<a href="#signup">Contact us directly →</a>
-      </p>
-    </div>
   </section>
 
 
@@ -2154,7 +2053,7 @@
           <span class="faq-icon" aria-hidden="true"></span>
         </label>
         <div class="faq-answer" role="region">
-          <p class="faq-answer-inner">Founding Unlimited is $279/month with unlimited classes, priority booking, early class format access, founding member recognition, private member events, and a personal welcome call from Celeste within 48 hours. "Locked for life" means your rate never increases as long as your membership remains active, even as standard pricing rises. The 3 month minimum applies at the start; after that, you may pause or cancel with 30 days' notice.</p>
+          <p class="faq-answer-inner">Founding Unlimited is $279/month with unlimited classes, priority booking, early class format access, founding member recognition, private member events, and a personal welcome from Celeste within 48 hours after you join. "Locked for life" means your rate never increases as long as your membership remains active, even as standard pricing rises. The 3 month minimum applies at the start; after that, you may pause or cancel with 30 days' notice.</p>
         </div>
       </div>
 
@@ -2176,7 +2075,7 @@
           <span class="faq-icon" aria-hidden="true"></span>
         </label>
         <div class="faq-answer" role="region">
-          <p class="faq-answer-inner">No experience required. The Cadillac Reformer is highly adaptable, and Cadilates classes are designed for every fitness level, from complete beginners to advanced practitioners seeking serious technical depth. Classes cap at twelve specifically so that programming can flex to meet everyone in the room. If you are brand new, the 7 Day Unlimited Intro at $119 is the best place to start, so you can experience the apparatus fully before committing to a membership.</p>
+          <p class="faq-answer-inner">No experience required. The Cadillac Reformer is highly adaptable, and Cadilates classes are designed for every fitness level, from complete beginners to advanced practitioners seeking serious technical depth. Classes cap at twelve specifically so that programming can flex to meet everyone in the room.</p>
         </div>
       </div>
 
@@ -2187,18 +2086,18 @@
           <span class="faq-icon" aria-hidden="true"></span>
         </label>
         <div class="faq-answer" role="region">
-          <p class="faq-answer-inner">Founding memberships carry a 3 month minimum commitment from your first class. After that, you may pause or cancel with 30 days' written notice. If you cancel and later wish to return, founding pricing cannot be reinstated. You would rejoin at standard rates. All terms are covered on your personal welcome call with Celeste before your membership activates.</p>
+          <p class="faq-answer-inner">Founding memberships carry a 3 month minimum commitment from your first class. After that, you may pause or cancel with 30 days' written notice. If you cancel and later wish to return, founding pricing cannot be reinstated. You would rejoin at standard rates. After you join, Celeste will personally welcome you, answer questions, and make sure you are set before opening.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <input type="checkbox" id="faq6" aria-expanded="false">
         <label class="faq-label" for="faq6">
-          <span class="faq-question">Can I try before joining as a founding member?</span>
+          <span class="faq-question">Will other membership options be available?</span>
           <span class="faq-icon" aria-hidden="true"></span>
         </label>
         <div class="faq-answer" role="region">
-          <p class="faq-answer-inner">Yes. The 7 Day Unlimited Intro at $119 is designed exactly for this. Seven consecutive days, unlimited classes, one flat fee for new clients. Founding member pricing remains available during your intro period, so you can experience the studio before deciding. Most people know by their second class.</p>
+          <p class="faq-answer-inner">Yes. A 7 Day Intro and standard memberships will also be available through the Cadilates app. This launch page is focused on the limited Founding 50 membership and its locked rate.</p>
         </div>
       </div>
 
@@ -2214,7 +2113,7 @@
     <h2 class="signup-headline">
       Your Name Should<br>Be on One of These 50 Spots.
     </h2>
-    <p class="signup-subhead">Fill this out and Celeste will reach out personally within 48 hours.</p>
+    <p class="signup-subhead">Claim your Founding 50 spot below. After you join, Celeste will personally reach out within 48 hours to welcome you, answer questions, and make sure you are set before opening.</p>
     <!-- MAILCHIMP FORM
          Replace ACTION_URL below with your Mailchimp embed URL:
          https://[account].us[X].list-manage.com/subscribe/post?u=XXXX&id=XXXX
@@ -2280,28 +2179,28 @@
         <label class="form-label" for="mce-MMERGE5">What Brings You Here?</label>
         <select class="form-select" id="mce-MMERGE5" name="MMERGE5">
           <option value="" disabled selected>Select the best fit</option>
-          <option value="curious">Just exploring, not ready to commit</option>
-          <option value="intro">Interested in the $119 7 Day Intro</option>
-          <option value="founding">Ready to claim a founding membership</option>
+          <option value="founding">Ready to claim a Founding 50 membership</option>
+          <option value="future-options">Interested in future membership options</option>
         </select>
       </div>
       <button type="submit" class="form-submit" id="mc-embedded-subscribe" name="subscribe">
-        Reserve My Founding Spot
+        Claim My Founding 50 Spot
       </button>
       <p class="form-micro">
         We will never share your information with anyone.<br>
-        Founding members are contacted before the studio opens to the public.
+        After submitting, you will continue to secure checkout to complete your membership.
       </p>
     </form>
 
     <!-- Success message — shown after form submission -->
     <div class="form-success" id="formSuccess" aria-live="polite">
       <div class="form-success-icon">✦</div>
-      <h3>You're on the list.</h3>
+      <h3>You're almost in.</h3>
       <p>
-        Your request went through. Celeste will reach out personally within 48 hours.<br>
-        You can close this page or keep exploring Cadilates.
+        Click below to complete your Founding 50 membership.<br>
+        Once you join, Celeste will personally reach out within 48 hours.
       </p>
+      <a href="https://www.cadilates.com/buy" class="form-success-cta" id="completeFoundingMembership">Complete My Founding Membership</a>
     </div>
 
   </section>
@@ -2327,7 +2226,7 @@
   <!-- ── STICKY MOBILE CTA ── -->
   <div class="sticky-mobile-cta" id="stickyMobileCta" aria-label="Quick reservation links">
     <a href="#signup" class="sm-primary">Claim Founding Spot</a>
-    <a href="#intro-offer" class="sm-secondary">Try $119 Intro</a>
+    <a href="#founding" class="sm-secondary">View Benefits</a>
   </div>
 
   <!-- ── NAV SCROLL BEHAVIOR ── -->
@@ -2391,6 +2290,7 @@
     (function() {
       var form = document.getElementById('mc-embedded-subscribe-form');
       var successEl = document.getElementById('formSuccess');
+      var purchaseLink = document.getElementById('completeFoundingMembership');
       if (!form || !successEl) return;
 
       var attributionFields = {
@@ -2427,6 +2327,39 @@
       }
 
       setAttributionFields();
+
+      function setPurchaseLink() {
+        if (!purchaseLink) return;
+        var purchaseUrl = new URL('https://www.cadilates.com/buy');
+
+        Object.keys(attributionFields).forEach(function(paramName) {
+          var value = new URLSearchParams(window.location.search).get(paramName);
+          if (!value) {
+            try {
+              value = sessionStorage.getItem('cadilates_' + paramName) || '';
+            } catch (err) {
+              value = '';
+            }
+          }
+          if (value) purchaseUrl.searchParams.set(paramName, value);
+        });
+
+        purchaseLink.href = purchaseUrl.toString();
+      }
+
+      setPurchaseLink();
+
+      if (purchaseLink) {
+        purchaseLink.addEventListener('click', function() {
+          if (typeof fbq === 'function') {
+            fbq('track', 'InitiateCheckout', {
+              content_name: 'Cadilates Founding Unlimited Membership',
+              value: 279,
+              currency: 'USD'
+            });
+          }
+        });
+      }
 
       function trackMetaLead() {
         if (typeof fbq === 'function') {
@@ -2471,7 +2404,7 @@
 
           if (submit) {
             submit.disabled = false;
-            submit.textContent = 'Reserve My Founding Spot';
+            submit.textContent = 'Claim My Founding 50 Spot';
           }
 
           if (response && response.result === 'success') {
@@ -2498,7 +2431,7 @@
           delete window[callbackName];
           if (submit) {
             submit.disabled = false;
-            submit.textContent = 'Reserve My Founding Spot';
+            submit.textContent = 'Claim My Founding 50 Spot';
           }
           alert('We could not reach Mailchimp. Please try again in a moment.');
         };
