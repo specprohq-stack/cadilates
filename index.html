@@ -1296,10 +1296,20 @@
       background: var(--cream);
       padding: 110px 40px;
     }
-    .faq-header {
-      text-align: center;
-      margin-bottom: 60px;
+    .faq-layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+      gap: clamp(56px, 9vw, 130px);
+      align-items: start;
     }
+    .faq-header {
+      text-align: left;
+      position: sticky;
+      top: 110px;
+    }
+    .faq-header .gold-line { margin: 0 0 1rem !important; }
     .faq-headline {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.7rem, 2.8vw, 2.4rem);
@@ -1307,67 +1317,55 @@
       color: var(--text-dark);
       margin-top: 0.75rem;
     }
-    .faq-inner {
-      max-width: 740px;
-      margin: 0 auto;
+    .faq-contact {
+      max-width: 250px;
+      margin: 24px 0 0;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text-mid);
     }
+    .faq-contact a { color: var(--caramel); text-decoration: none; border-bottom: 1px solid currentColor; }
+    .faq-inner { max-width: 660px; width: 100%; }
     .faq-item {
       border-bottom: 1px solid var(--sand);
     }
-    .faq-item input[type="checkbox"] { display: none; }
+    .faq-item input[type="checkbox"], .faq-icon { display: none; }
     .faq-label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 26px 0;
-      cursor: pointer;
-      user-select: none;
-      gap: 20px;
+      display: block;
+      margin: 0;
+      padding: 27px 0 10px;
     }
     .faq-question {
       font-family: 'Playfair Display', serif;
-      font-size: 1.08rem;
+      font-size: 1.2rem;
       font-weight: 500;
       color: var(--text-dark);
-      line-height: 1.4;
+      line-height: 1.42;
     }
-    .faq-icon {
-      flex-shrink: 0;
-      width: 26px;
-      height: 26px;
-      border: 1px solid var(--caramel);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      transition: background 0.25s;
-    }
-    .faq-icon::before, .faq-icon::after {
-      content: '';
-      position: absolute;
-      background: var(--caramel);
-      transition: transform 0.3s, opacity 0.3s;
-    }
-    .faq-icon::before { width: 11px; height: 1.5px; }
-    .faq-icon::after  { width: 1.5px; height: 11px; }
     .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
+      max-height: none;
+      overflow: visible;
     }
     .faq-answer-inner {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.95rem;
       font-weight: 300;
-      line-height: 1.85;
+      line-height: 1.8;
       color: var(--text-mid);
-      padding-bottom: 28px;
+      padding: 0 0 29px;
     }
-    .faq-item input:checked ~ .faq-label .faq-icon { background: var(--caramel); }
-    .faq-item input:checked ~ .faq-label .faq-icon::before { background: var(--espresso); }
-    .faq-item input:checked ~ .faq-label .faq-icon::after { background: var(--espresso); transform: rotate(90deg); opacity: 0; }
-    .faq-item input:checked ~ .faq-answer { max-height: 500px; }
-    .faq-item input:checked ~ .faq-label .faq-question { color: var(--caramel); }
+    .faq-cta { max-width: 1120px; margin: 54px auto 0; text-align: right; }
+    .faq-cta a { display: inline-block; background: var(--caramel); color: var(--cream); padding: 15px 24px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; transition: background 0.2s ease; }
+    .faq-cta a:hover { background: var(--text-dark); }
+
+    @media (max-width: 800px) {
+      .faq-layout { display: block; }
+      .faq-header { position: static; text-align: center; margin-bottom: 42px; }
+      .faq-header .gold-line { margin: 0 auto 1rem !important; }
+      .faq-contact { margin: 20px auto 0; }
+      .faq-inner { margin: 0 auto; }
+      .faq-cta { margin-top: 36px; text-align: center; }
+    }
 
     /* ─────────────────────────────
        SECTION 8 — SIGNUP FORM
@@ -2028,80 +2026,60 @@
        SECTION 7 — FAQ
   ───────────────────────────── -->
   <section id="faq" aria-label="Frequently asked questions">
+    <div class="faq-layout">
     <div class="faq-header">
       <div class="gold-line" style="margin:0 auto 1rem;"></div>
       <span class="section-label">Questions</span>
       <h2 class="faq-headline">Answers Before You Ask</h2>
+      <p class="faq-contact">Have a question not listed here? Reach out to Celeste directly at <a href="mailto:info@cadilates.com">info@cadilates.com</a>.</p>
     </div>
     <div class="faq-inner">
 
       <div class="faq-item">
-        <input type="checkbox" id="faq1" aria-expanded="false">
-        <label class="faq-label" for="faq1">
-          <span class="faq-question">What exactly is a Cadillac Reformer and how is it different from a regular reformer?</span>
-          <span class="faq-icon" aria-hidden="true"></span>
-        </label>
+        <h3 class="faq-label faq-question">What exactly is a Cadillac Reformer and how is it different from a regular reformer?</h3>
         <div class="faq-answer" role="region">
           <p class="faq-answer-inner">The Cadillac Reformer combines a sliding reformer carriage with a full overhead frame fitted with spring bars, a trapeze, push through bar, and leg springs. This allows work in all three planes of movement simultaneously. A standard reformer operates primarily in one horizontal direction. The Cadillac includes spinal traction, overhead resistance, inversions, and full body mobility sequences that a reformer alone simply cannot offer. Joseph Pilates considered it the most complete expression of his method, and it remains the most versatile apparatus in Pilates today.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <input type="checkbox" id="faq2" aria-expanded="false">
-        <label class="faq-label" for="faq2">
-          <span class="faq-question">What does a founding membership include, and what is "locked for life"?</span>
-          <span class="faq-icon" aria-hidden="true"></span>
-        </label>
+        <h3 class="faq-label faq-question">What does a founding membership include, and what is "locked for life"?</h3>
         <div class="faq-answer" role="region">
           <p class="faq-answer-inner">Founding Unlimited is $279/month with unlimited classes, priority booking, early class format access, founding member recognition, private member events, and a personal welcome from Celeste within 48 hours after you join. "Locked for life" means your rate never increases as long as your membership remains active, even as standard pricing rises. The 3 month minimum applies at the start; after that, you may pause or cancel with 30 days' notice.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <input type="checkbox" id="faq3" aria-expanded="false">
-        <label class="faq-label" for="faq3">
-          <span class="faq-question">When does Cadilates open? What happens if I sign up now?</span>
-          <span class="faq-icon" aria-hidden="true"></span>
-        </label>
+        <h3 class="faq-label faq-question">When does Cadilates open? What happens if I sign up now?</h3>
         <div class="faq-answer" role="region">
           <p class="faq-answer-inner">We are targeting an opening in Santa Monica in the coming months. Your first payment is collected when you complete your Founding Membership purchase, before the studio opens, and the 3 month minimum applies from joining. Founding members receive the opening date, soft launch scheduling access, and studio updates well before any public announcement.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <input type="checkbox" id="faq4" aria-expanded="false">
-        <label class="faq-label" for="faq4">
-          <span class="faq-question">Do I need prior Pilates experience to join?</span>
-          <span class="faq-icon" aria-hidden="true"></span>
-        </label>
+        <h3 class="faq-label faq-question">Do I need prior Pilates experience to join?</h3>
         <div class="faq-answer" role="region">
           <p class="faq-answer-inner">No experience required. The Cadillac Reformer is highly adaptable, and Cadilates classes are designed for every fitness level, from complete beginners to advanced practitioners seeking serious technical depth. Classes cap at twelve specifically so that programming can flex to meet everyone in the room.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <input type="checkbox" id="faq5" aria-expanded="false">
-        <label class="faq-label" for="faq5">
-          <span class="faq-question">What is the cancellation policy for founding memberships?</span>
-          <span class="faq-icon" aria-hidden="true"></span>
-        </label>
+        <h3 class="faq-label faq-question">What is the cancellation policy for founding memberships?</h3>
         <div class="faq-answer" role="region">
           <p class="faq-answer-inner">Founding memberships carry a 3 month minimum commitment from the date you join. After that, you may pause or cancel with 30 days' written notice. If you cancel and later wish to return, founding pricing cannot be reinstated. You would rejoin at standard rates. After you join, Celeste will personally welcome you, answer questions, and make sure you are set before opening.</p>
         </div>
       </div>
 
       <div class="faq-item">
-        <input type="checkbox" id="faq6" aria-expanded="false">
-        <label class="faq-label" for="faq6">
-          <span class="faq-question">Will other membership options be available?</span>
-          <span class="faq-icon" aria-hidden="true"></span>
-        </label>
+        <h3 class="faq-label faq-question">Will other membership options be available?</h3>
         <div class="faq-answer" role="region">
           <p class="faq-answer-inner">Yes. A 7 Day Intro and standard memberships will also be available through the Cadilates app. This launch page is focused on the limited Founding 50 membership and its locked rate.</p>
         </div>
       </div>
 
     </div>
+    </div>
+    <div class="faq-cta"><a href="#signup">Claim Founding 50 Membership</a></div>
   </section>
 
 
