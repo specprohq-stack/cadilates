@@ -1635,8 +1635,8 @@
       body { padding-bottom: 68px; }
     }
 
-    /* ── SPOTS COUNTER ── */
-    .spots-counter {
+    /* ── FOUNDING ENROLLMENT DEADLINE ── */
+    .founding-deadline {
       background: var(--warm-white);
       border: 1px solid var(--sand);
       max-width: 580px;
@@ -1644,13 +1644,13 @@
       padding: 28px 36px;
       text-align: left;
     }
-    .spots-counter-top {
+    .founding-deadline-inner {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 12px;
+      gap: 24px;
     }
-    .spots-claimed-label {
+    .founding-deadline-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.70rem;
       font-weight: 600;
@@ -1658,30 +1658,19 @@
       text-transform: uppercase;
       color: var(--brown);
     }
-    .spots-remaining-badge {
+    .founding-deadline-date {
       font-family: 'Playfair Display', serif;
       font-size: 1rem;
       font-weight: 500;
       color: var(--caramel);
     }
-    .spots-progress-track {
-      width: 100%;
-      height: 4px;
-      background: var(--pale);
-      position: relative;
-      overflow: hidden;
-    }
-    .spots-progress-fill {
-      height: 100%;
-      background: var(--caramel);
-      transition: width 1.2s ease;
-    }
-    .spots-note {
+    .founding-deadline-note {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.72rem;
       font-weight: 300;
       color: var(--brown);
-      margin-top: 8px;
+      line-height: 1.6;
+      margin: 12px 0 0;
     }
 
     /* ── WHO IT'S FOR ── */
@@ -1738,7 +1727,8 @@
     @media (max-width: 768px) {
       .who-inner { grid-template-columns: 1fr; gap: 32px; }
       #who { padding: 72px 20px; }
-      .spots-counter { padding: 22px 20px; }
+      .founding-deadline { padding: 22px 20px; }
+      .founding-deadline-inner { align-items: flex-start; flex-direction: column; gap: 5px; }
     }
 
     /* ── FORM SUCCESS STATE ── */
@@ -1917,19 +1907,15 @@
       This Rate Is Only Available<br>Because You're Here First.
     </h2>
     <p class="founding-intro">
-      Founding membership is not a promotion. It is a permanent rate, locked at the price you join today, for as long as your membership remains active. Fifty spots. When they fill, founding pricing closes forever.
+      Founding membership is not a promotion. It is a permanent rate, locked at the price you join today, for as long as your membership remains active. Limited to fifty members. Enrollment closes August 15, or sooner if the Founding 50 fills.
     </p>
 
-    <!-- Spots Counter — update SPOTS_CLAIMED variable in JS at bottom -->
-    <div class="spots-counter" id="spotsCounter" aria-live="polite">
-      <div class="spots-counter-top">
-        <span class="spots-claimed-label">Founding spots claimed</span>
-        <span class="spots-remaining-badge" id="spotsRemainingBadge">remaining</span>
+    <div class="founding-deadline" role="note" aria-label="Founding membership enrollment deadline">
+      <div class="founding-deadline-inner">
+        <span class="founding-deadline-label">Limited to 50 Founding Members</span>
+        <span class="founding-deadline-date">Enrollment closes August 15</span>
       </div>
-      <div class="spots-progress-track">
-        <div class="spots-progress-fill" id="spotsProgressFill" style="width:0%"></div>
-      </div>
-      <p class="spots-note" id="spotsNote">Loading...</p>
+      <p class="founding-deadline-note">Founding pricing is available through August 15.</p>
     </div>
 
     <div class="founding-card" role="article" aria-label="Founding Unlimited membership">
@@ -2209,38 +2195,6 @@
 
   <!-- ── NAV SCROLL BEHAVIOR ── -->
   <script>
-    // ─────────────────────────────────────────────────
-    // CADILATES CONFIGURATION
-    // Update SPOTS_CLAIMED as founding members join.
-    // Range: 0–50. Recommended: update weekly.
-    // ─────────────────────────────────────────────────
-    var SPOTS_CLAIMED = 0; // ← Update this number
-
-    // ── SPOTS COUNTER ──
-    (function() {
-      var total = 50;
-      var claimed = Math.max(0, Math.min(total, SPOTS_CLAIMED));
-      var remaining = total - claimed;
-      var pct = Math.round((claimed / total) * 100);
-
-      var fillEl  = document.getElementById('spotsProgressFill');
-      var badgeEl = document.getElementById('spotsRemainingBadge');
-      var noteEl  = document.getElementById('spotsNote');
-
-      if (fillEl && badgeEl && noteEl) {
-        setTimeout(function() {
-          fillEl.style.width = pct + '%';
-        }, 300);
-        badgeEl.textContent = remaining + ' of 50 remaining';
-        if (remaining <= 10) {
-          badgeEl.style.color = '#c0392b';
-          noteEl.textContent = 'Only ' + remaining + ' founding spots left. Once they fill, this rate is gone.';
-        } else {
-          noteEl.textContent = claimed + ' of 50 founding spots have been claimed.';
-        }
-      }
-    })();
-
     // ── NAV SCROLL ──
     (function() {
       var nav = document.getElementById('navbar');
